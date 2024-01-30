@@ -1,6 +1,6 @@
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/Borahb/Custom-OCR-YOLO.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Borahb/Custom-OCR-YOLO/context:python)
 # Custom-OCR-YOLO
- <img src = "asset/logo.png" height = 200, width = 900>
+ <img src = "logo.png" height = 200, width = 900>
  
  
 This is a Custom OCR built by combining YOLO and Tesseract, to read the specific contents of a Lab Report and convert it into an editable file.
@@ -22,7 +22,7 @@ Here I have used YOLO_V3 trained on personal dataset. Then the coordinates of th
 ## Workflow
 
 <p align="center"> 
-<img src = "asset/workflow.png" height = 400, width = 700>
+<img src = "workflow.png" height = 400, width = 700>
 </p>
 
 ## Getting Started
@@ -37,13 +37,13 @@ This section will highlight the steps I took in order to implement the Custom-OC
 This will show the step-by-step workflow on the following original image.
 
 <p align="center"> 
-<img src = "images/repo3.jpg" height = 300, width = 600>
+<img src = "repo3.jpg" height = 300, width = 600>
 </p>
 
 ##### Detected regions
 
 <p align="center"> 
-<img src = "asset/predictions1.jpg" height = 300, width = 600>
+<img src = "predictions1.jpg" height = 300, width = 600>
 </p>
 
 The first step of the process is taking the bounding box coordinates from YOLOv3 and simply taking the region within the bounds of the box. As this image is super small, we use cv2.resize() to blow the image up 3x its original size.
@@ -55,25 +55,25 @@ The first step of the process is taking the bounding box coordinates from YOLOv3
 Then we convert the image to grayscale and apply a small Gaussian blur to smooth it out.
 
 <p align="center"> 
-<img src = "asset/3.png" height = 100, width = 200>
+<img src = "3.png" height = 100, width = 200>
 </p>
 
 The image is then thresholded to white text with black background and has Otsu's method also applied. This white text on black background helps to find contours of image.
 
 <p align="center"> 
-<img src = "asset/4.png" height = 100, width = 200>
+<img src = "4.png" height = 100, width = 200>
 </p>
 
 Then we apply a bitwise_not mask to flip the image to black text on white background which Tesseract is more accurate with.
 
 <p align="center"> 
-<img src = "Crop/roi__0.jpg" height = 100, width = 200>
+<img src = "roi__0.jpg" height = 100, width = 200>
 </p>
 
 The  preprocessed images are then passed over Tesseract and the output is saved as a csv file.
 
 <p align="center"> 
-<img src = "asset/Screenshot (400).png" height = 100, width = 550>
+<img src = "Screenshot (400).png" height = 100, width = 550>
 </p>
 
 ## Contributing
